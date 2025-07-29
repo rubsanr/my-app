@@ -4,20 +4,20 @@ pipeline {
   stages {
     stage('Clone Repo') {
       steps {
-        git 'https://github.com/rubsanr/my-app'
+        git branch: 'main', url: 'https://github.com/rubsanr/my-app.git'
       }
     }
     stage('Build Docker Image') {
       steps {
         script {
-          sh 'sudo docker build -t my-app-image .'
+          sh 'docker build -t my-app-image .'
         }
       }
     }
     stage('Run Container') {
       steps {
         script {
-          sh 'sudo docker run -d -p 3000:3000 --name my-app my-app-image'
+          sh 'docker run -d -p 3000:3000 --name my-app my-app-image'
         }
       }
     }
