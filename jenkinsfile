@@ -4,7 +4,7 @@ agent any
 stages {
 stage('Clone Repo') {
 steps {
-git 'https://github.com/rubsanr/your-docker-app.git'
+git 'https://github.com/rubsanr/my-app.git'
 }
 }
 stage('Build Docker Image') {
